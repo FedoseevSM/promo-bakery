@@ -132,6 +132,111 @@
             .nav-links { display: none; } /* Для мобильной версии можно добавить JS-бургер */
             .corporate-block { padding: 30px 20px; }
         }
+        .site-footer {
+        background: linear-gradient(180deg, var(--bg-section) 0%, #E3DDD5 100%);
+        padding: 60px 0 0;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        border-top: 2px solid var(--pink-powder);
+    }
+    
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .footer-logo {
+        font-family: 'Georgia', serif;
+        font-size: 1.6rem;
+        color: var(--green-dark);
+        font-style: italic;
+        margin-bottom: 12px;
+    }
+    
+    .footer-tagline {
+        line-height: 1.6;
+        margin-bottom: 24px;
+        max-width: 300px;
+    }
+    
+    .footer-socials {
+        display: flex;
+        gap: 12px;
+    }
+    
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--white-soft);
+        color: var(--green-muted);
+        font-weight: 600;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid var(--beige-accent);
+    }
+    
+    .social-link:hover {
+        background: var(--green-dark);
+        color: var(--white-soft);
+        border-color: var(--green-dark);
+        transform: translateY(-2px);
+    }
+
+    .footer-nav h4, .footer-contacts h4 {
+        font-family: 'Georgia', serif;
+        font-size: 1.15rem;
+        color: var(--green-dark);
+        margin-bottom: 18px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+    
+    .footer-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-nav li { margin-bottom: 10px; }
+    
+    .footer-nav a, .footer-contacts a, .footer-contacts p {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s;
+        display: inline-block;
+    }
+    
+    .footer-nav a:hover, .footer-contacts a:hover {
+        color: var(--pink-powder);
+    }
+    
+    .footer-bottom {
+        background: var(--bg-main);
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        border-top: 1px solid var(--beige-accent);
+    }
+    
+    @media (max-width: 768px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+            text-align: center;
+        }
+        .footer-tagline { max-width: 100%; margin-left: auto; margin-right: auto; }
+        .footer-socials { justify-content: center; }
+        .site-footer { padding-top: 40px; }
+    }
     </style>
 </head>
 <body>
@@ -206,12 +311,52 @@
         </div>
     </section>
 
-    <footer>
+    <section id="contact" class="container">
+        <div class="contact">
+            <h2>Оформить заказ</h2>
+            <p>Заполните форму, и мы свяжемся с вами для уточнения деталей, выбора начинки и расчёта стоимости.</p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка отправлена. Мы скоро свяжемся с вами.');">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Телефон или Telegram" required>
+                <textarea rows="4" placeholder="Опишите желаемый десерт, дату мероприятия и примерное количество гостей"></textarea>
+                <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <div class="footer-logo">La Pâtisserie Douce</div>
+            <p class="footer-tagline">Авторские десерты, созданные с вниманием к вкусу и эстетике. Делаем ваши праздники слаще.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-link" aria-label="Telegram">TG</a>
+                <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
+                <a href="#" class="social-link" aria-label="Instagram">IG</a>
+            </div>
+        </div>
+        <div class="footer-nav">
+            <h4>Навигация</h4>
+            <ul>
+                <li><a href="#assortment">Ассортимент</a></li>
+                <li><a href="#corporate">Праздники и корпоративы</a></li>
+                <li><a href="#contact">Оформить заказ</a></li>
+                <li><a href="#">Доставка и оплата</a></li>
+            </ul>
+        </div>
+        <div class="footer-contacts">
+            <h4>Контакты</h4>
+            <p>Москва, доставка по согласованию</p>
+            <p><a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+            <p><a href="mailto:hello@patisserie.ru">hello@patisserie.ru</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
         <div class="container">
             <p>© 2026 La Pâtisserie Douce. Все права защищены.</p>
-            <p style="margin-top: 8px;">Москва | Доставка по согласованию | <a href="#">Telegram</a> | <a href="#">WhatsApp</a> | <a href="#">Instagram</a></p>
         </div>
-    </footer>
+    </div>
+</footer>
 
 </body>
 </html>
