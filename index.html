@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Pâtisserie Douce | Авторские кондитерские изделия</title>
+    <title>La Pâtisserie Douce | Авторские кондитерские изделия и консалтинг</title>
     <style>
         :root {
-            /* Приглушенная, сложная палитра: пудровый, зеленый, бежевый */
             --bg-main: #F6F2ED;
             --bg-section: #EAE3DA;
             --pink-powder: #D6B8B8;
@@ -20,7 +19,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--bg-main);
@@ -48,6 +47,7 @@
             padding: 18px 0; 
             border-bottom: 1px solid var(--beige-accent);
             position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(8px);
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-family: 'Georgia', serif; color: var(--green-dark); font-style: italic; }
@@ -55,14 +55,14 @@
             margin-left: 24px; text-decoration: none; color: var(--text-secondary); 
             font-size: 0.95rem; transition: color 0.3s; 
         }
-        .nav-links a:hover { color: var(--pink-powder); }
+        .nav-links a:hover { color: var(--green-dark); font-weight: 500; }
 
         /* Hero */
         .hero { 
             text-align: center; padding: 90px 20px; 
             background: linear-gradient(160deg, var(--pink-light) 0%, var(--bg-main) 100%); 
         }
-        .hero p { font-size: 1.15rem; max-width: 650px; margin: 0 auto 30px; }
+        .hero p { font-size: 1.15rem; max-width: 700px; margin: 0 auto 30px; }
         
         /* Buttons */
         .btn {
@@ -74,169 +74,87 @@
         }
         .btn:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(74, 90, 74, 0.3); }
 
-        /* Products Grid */
-        .products-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        /* Services Grid */
+        .services-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
             gap: 32px; margin-top: 40px; 
         }
-        .product-card {
+        .service-card {
             background: var(--white-soft); border-radius: 18px; overflow: hidden;
             box-shadow: 0 6px 20px rgba(0,0,0,0.04); transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--pink-powder);
+            border: 1px solid var(--pink-powder); display: flex; flex-direction: column;
         }
-        .product-card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .card-img { 
-            height: 200px; background: var(--bg-section); 
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .card-icon { 
+            height: 140px; background: var(--bg-section); 
             display: flex; align-items: center; justify-content: center; 
-            font-size: 3.5rem; letter-spacing: 10px;
+            font-size: 3.2rem;
         }
-        .card-body { padding: 22px; text-align: center; }
-        .card-body h3 { color: var(--green-dark); margin-bottom: 8px; font-size: 1.3rem; }
-        .price { font-weight: 600; color: var(--pink-powder); font-size: 1.1rem; margin: 10px 0; }
+        .card-body { padding: 24px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-body h3 { color: var(--green-dark); margin-bottom: 10px; font-size: 1.25rem; }
+        .card-body p { font-size: 0.95rem; margin-bottom: 0; }
+        .tag { 
+            display: inline-block; margin-top: 14px; font-size: 0.8rem; 
+            color: var(--green-muted); background: rgba(140, 154, 140, 0.1); 
+            padding: 4px 10px; border-radius: 20px; align-self: center;
+        }
 
-        /* Corporate Section */
-        .corporate-block { 
+        /* Development & Consulting Section */
+        .dev-block { 
             background: var(--bg-section); border-radius: 24px; 
             margin: 60px auto; max-width: 950px; padding: 50px 40px; 
             border: 1px solid var(--beige-accent);
         }
-        .corporate-content { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-        .corporate-text { flex: 1; min-width: 300px; }
-        .corporate-text h2 { text-align: left; color: var(--text-primary); margin-bottom: 1rem; }
-        .corporate-list { list-style: none; margin: 20px 0 25px; }
-        .corporate-list li { margin-bottom: 10px; padding-left: 24px; position: relative; color: var(--text-secondary); }
-        .corporate-list li::before { content: "✦"; color: var(--green-muted); position: absolute; left: 0; font-size: 1.1rem; }
+        .dev-content { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+        .dev-text { flex: 1; min-width: 300px; }
+        .dev-text h2 { text-align: left; color: var(--text-primary); margin-bottom: 1rem; font-size: 1.8rem; }
+        .dev-list { list-style: none; margin: 20px 0 25px; }
+        .dev-list li { margin-bottom: 12px; padding-left: 24px; position: relative; color: var(--text-secondary); }
+        .dev-list li::before { content: "✦"; color: var(--green-muted); position: absolute; left: 0; font-size: 1.1rem; }
         
         /* Contact/Order */
-        .contact { text-align: center; background: var(--pink-light); border-radius: 20px; padding: 45px 30px; margin-bottom: 70px; }
+        .contact { text-align: center; background: var(--pink-light); border-radius: 20px; padding: 45px 30px; margin: 0 auto 70px; max-width: 800px; }
         .contact-form { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-        .contact-form input, .contact-form textarea {
+        .contact-form input, .contact-form textarea, .contact-form select {
             padding: 14px; border: 1px solid var(--beige-accent); border-radius: 10px; 
-            font-family: inherit; background: var(--white-soft); outline: none; transition: border 0.3s;
+            font-family: inherit; background: var(--white-soft); outline: none; transition: border 0.3s; font-size: 0.95rem;
         }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--green-muted); }
-        .contact-form button { margin-top: 8px; }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--green-muted); }
+        .contact-form button { margin-top: 8px; align-self: center; }
 
         /* Footer */
-        footer { 
-            background: var(--green-dark); color: var(--white-soft); 
-            padding: 35px 0; text-align: center; font-size: 0.9rem; 
+        .site-footer {
+            background: linear-gradient(180deg, var(--bg-section) 0%, #E3DDD5 100%);
+            padding: 60px 0 0; color: var(--text-secondary); font-size: 0.95rem; border-top: 2px solid var(--pink-powder);
         }
-        footer a { color: var(--pink-powder); text-decoration: none; margin: 0 8px; transition: opacity 0.2s; }
-        footer a:hover { opacity: 0.8; text-decoration: underline; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 40px; }
+        .footer-logo { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--green-dark); font-style: italic; margin-bottom: 12px; }
+        .footer-tagline { line-height: 1.6; margin-bottom: 24px; max-width: 300px; }
+        .footer-socials { display: flex; gap: 12px; }
+        .social-link {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; background: var(--white-soft);
+            color: var(--green-muted); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.5px;
+            text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--beige-accent);
+        }
+        .social-link:hover { background: var(--green-dark); color: var(--white-soft); border-color: var(--green-dark); transform: translateY(-2px); }
+        .footer-nav h4, .footer-contacts h4 { font-family: 'Georgia', serif; font-size: 1.15rem; color: var(--green-dark); margin-bottom: 18px; font-weight: 400; letter-spacing: 0.5px; }
+        .footer-nav ul { list-style: none; padding: 0; margin: 0; }
+        .footer-nav li { margin-bottom: 10px; }
+        .footer-nav a, .footer-contacts a, .footer-contacts p { color: var(--text-secondary); text-decoration: none; transition: color 0.3s; display: inline-block; }
+        .footer-nav a:hover, .footer-contacts a:hover { color: var(--green-dark); }
+        .footer-bottom { background: var(--bg-main); padding: 20px 0; text-align: center; font-size: 0.85rem; color: var(--text-secondary); border-top: 1px solid var(--beige-accent); }
 
         /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .hero { padding: 60px 20px; }
-            .nav-links { display: none; } /* Для мобильной версии можно добавить JS-бургер */
-            .corporate-block { padding: 30px 20px; }
+            .nav-links { display: none; }
+            .dev-block { padding: 30px 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+            .footer-tagline { max-width: 100%; margin-left: auto; margin-right: auto; }
+            .footer-socials { justify-content: center; }
         }
-        .site-footer {
-        background: linear-gradient(180deg, var(--bg-section) 0%, #E3DDD5 100%);
-        padding: 60px 0 0;
-        color: var(--text-secondary);
-        font-size: 0.95rem;
-        border-top: 2px solid var(--pink-powder);
-    }
-    
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr;
-        gap: 40px;
-        padding-bottom: 40px;
-    }
-    
-    .footer-logo {
-        font-family: 'Georgia', serif;
-        font-size: 1.6rem;
-        color: var(--green-dark);
-        font-style: italic;
-        margin-bottom: 12px;
-    }
-    
-    .footer-tagline {
-        line-height: 1.6;
-        margin-bottom: 24px;
-        max-width: 300px;
-    }
-    
-    .footer-socials {
-        display: flex;
-        gap: 12px;
-    }
-    
-    .social-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: var(--white-soft);
-        color: var(--green-muted);
-        font-weight: 600;
-        font-size: 0.75rem;
-        letter-spacing: 0.5px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border: 1px solid var(--beige-accent);
-    }
-    
-    .social-link:hover {
-        background: var(--green-dark);
-        color: var(--white-soft);
-        border-color: var(--green-dark);
-        transform: translateY(-2px);
-    }
-
-    .footer-nav h4, .footer-contacts h4 {
-        font-family: 'Georgia', serif;
-        font-size: 1.15rem;
-        color: var(--green-dark);
-        margin-bottom: 18px;
-        font-weight: 400;
-        letter-spacing: 0.5px;
-    }
-    
-    .footer-nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .footer-nav li { margin-bottom: 10px; }
-    
-    .footer-nav a, .footer-contacts a, .footer-contacts p {
-        color: var(--text-secondary);
-        text-decoration: none;
-        transition: color 0.3s;
-        display: inline-block;
-    }
-    
-    .footer-nav a:hover, .footer-contacts a:hover {
-        color: var(--pink-powder);
-    }
-    
-    .footer-bottom {
-        background: var(--bg-main);
-        padding: 20px 0;
-        text-align: center;
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        border-top: 1px solid var(--beige-accent);
-    }
-    
-    @media (max-width: 768px) {
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 32px;
-            text-align: center;
-        }
-        .footer-tagline { max-width: 100%; margin-left: auto; margin-right: auto; }
-        .footer-socials { justify-content: center; }
-        .site-footer { padding-top: 40px; }
-    }
     </style>
 </head>
 <body>
@@ -246,9 +164,9 @@
             <nav>
                 <div class="logo">La Pâtisserie Douce</div>
                 <div class="nav-links">
-                    <a href="#assortment">Ассортимент</a>
-                    <a href="#corporate">Праздники и корпоративы</a>
-                    <a href="#contact">Заказать</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#development">Разработка и обучение</a>
+                    <a href="#contact">Связаться</a>
                 </div>
             </nav>
         </div>
@@ -256,93 +174,122 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Сладкое искусство в каждой детали</h1>
-            <p>Авторские торты, нежные пирожные, ручные конфеты и другие десерты. Создаём с вниманием к вкусу, текстуре и эстетике.</p>
-            <a href="#contact" class="btn">Сделать заказ</a>
+            <h1>Вкус, технология и эстетика</h1>
+            <p>Авторские торты, пирожные и индивидуальные десерты. Профессиональная разработка новых рецептур, консалтинг и обучение кондитерскому искусству.</p>
+            <a href="#contact" class="btn">Оставить заявку</a>
         </div>
     </section>
 
-    <section id="assortment" class="container">
-        <h2>Наша коллекция вкусов</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="card-img">🎂</div>
+    <section id="services" class="container">
+        <h2>Направления работы</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-icon">🎂</div>
                 <div class="card-body">
                     <h3>Авторские торты</h3>
-                    <p>Классические и современные рецептуры: от воздушного бисквита до насыщенного шоколадного ганаша.</p>
-                    <div class="price">от 3 500 ₽ / кг</div>
+                    <p>Классические и современные многоярусные решения. Тщательный подбор ингредиентов, баланс текстур и индивидуальный дизайн.</p>
+                    <span class="tag">Для частных лиц</span>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="card-img">🧁</div>
+            <div class="service-card">
+                <div class="card-icon">🧁</div>
                 <div class="card-body">
-                    <h3>Пирожные и капкейки</h3>
-                    <p>Идеальный формат для камерных встреч. Разные начинки, деликатный крем, аккуратное оформление.</p>
-                    <div class="price">от 280 ₽ / шт</div>
+                    <h3>Пирожные и десерты на заказ</h3>
+                    <p>Камерные сеты, тематические коллекции и кэнди-бары. Идеально для мероприятий, фотосессий и корпоративных подарков.</p>
+                    <span class="tag">Для событий и бизнеса</span>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="card-img">🍬</div>
+            <div class="service-card">
+                <div class="card-icon">🔬</div>
                 <div class="card-body">
-                    <h3>Ручные конфеты</h3>
-                    <p>Трюфели, пралине и карамель ручной работы. Утончённый подарок или дополнение к столу.</p>
-                    <div class="price">от 1 400 ₽ / коробка</div>
+                    <h3>Разработка новых сладостей</h3>
+                    <p>Создание уникальных рецептур под ваше ТЗ. Тестирование стабильности, подбор начинок, адаптация под производство.</p>
+                    <span class="tag">R&D и B2B</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="card-icon">📚</div>
+                <div class="card-body">
+                    <h3>Консультации и обучение</h3>
+                    <p>Передача принципов создания кондитерских линеек. Аудит процессов, наставничество и практические курсы для профессионалов.</p>
+                    <span class="tag">Образование и консалтинг</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="corporate" class="container">
-        <div class="corporate-block">
-            <div class="corporate-content">
-                <div class="corporate-text">
-                    <h2>Торты, пирожные, конфеты и другие изделия для праздников и корпоративов</h2>
-                    <p>Мы создаём не просто десерт, а важную часть вашего события. Предлагаем специальные условия для оформления заказов на дни рождения, свадьбы, бизнес-мероприятия и корпоративные праздники.</p>
-                    <ul class="corporate-list">
-                        <li>Индивидуальный дизайн и фирменная упаковка</li>
-                        <li>Специальные цены при заказе от 10 кг</li>
-                        <li>Готовые кэнди-бары и фуршетные сеты «под ключ»</li>
-                        <li>Возможность нанесения логотипа или символики компании</li>
-                        <li>Безопасная доставка в удобное для вас время</li>
+    <section id="development" class="container">
+        <div class="dev-block">
+            <div class="dev-content">
+                <div class="dev-text">
+                    <h2>Разработка рецептур и обучение</h2>
+                    <p>Мы не просто готовим десерты, а создаём кондитерские продукты «под ключ». Помогаем кафе, ресторанам и стартапам запускать новые линейки, обучаем команды работе с современными текстурами и стабилизацией.</p>
+                    <ul class="dev-list">
+                        <li>Разработка рецептур с учётом себестоимости и сроков годности</li>
+                        <li>Адаптация домашних рецептов под цеховое производство</li>
+                        <li>Авторские мастер-классы по балансу вкуса и работе с шоколадом/карамелью</li>
+                        <li>Консультации по закупкам, оборудованию и технологическим картам</li>
+                        <li>Сопровождение от идеи до вывода продукта на полку или в меню</li>
                     </ul>
-                    <a href="#contact" class="btn">Обсудить мероприятие</a>
+                    <a href="#contact" class="btn">Запросить программу/условия</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="contact">
+            <h2>Обсудить заказ или проект</h2>
+            <p>Оставьте контакты, и мы свяжемся с вами в течение рабочего дня для уточнения деталей.</p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка отправлена.');">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Телефон или Telegram" required>
+                <input type="email" placeholder="Email (по желанию)">
+                <select>
+                    <option value="" disabled selected>Выберите тип запроса</option>
+                    <option value="cake">Заказ торта / десертов</option>
+                    <option value="development">Разработка новой рецептуры</option>
+                    <option value="consult">Консультация / Обучение</option>
+                    <option value="other">Другое</option>
+                </select>
+                <textarea rows="4" placeholder="Кратко опишите задачу, сроки или желаемый результат..."></textarea>
+                <button type="submit" class="btn">Отправить запрос</button>
+            </form>
         </div>
     </section>
 
     <footer class="site-footer">
-    <div class="container footer-grid">
-        <div class="footer-brand">
-            <div class="footer-logo">La Pâtisserie Douce</div>
-            <p class="footer-tagline">Авторские десерты, созданные с вниманием к вкусу и эстетике. Делаем ваши праздники слаще.</p>
-            <div class="footer-socials">
-                <a href="#" class="social-link" aria-label="Telegram">TG</a>
-                <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
-                <a href="#" class="social-link" aria-label="Instagram">IG</a>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">La Pâtisserie Douce</div>
+                <p class="footer-tagline">Авторские десерты, разработка рецептур и обучение. Объединяем кулинарное искусство с технологической точностью.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-link" aria-label="Telegram">TG</a>
+                    <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
+                    <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#development">Разработка и обучение</a></li>
+                    <li><a href="#">Портфолио</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <p>Санкт-Петербург, работаем по РФ/СНГ</p>
+                <p><a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+                <p><a href="mailto:hello@patisserie.ru">hello@patisserie.ru</a></p>
             </div>
         </div>
-        <div class="footer-nav">
-            <h4>Навигация</h4>
-            <ul>
-                <li><a href="#assortment">Ассортимент</a></li>
-                <li><a href="#corporate">Праздники и корпоративы</a></li>
-                <li><a href="#">Доставка и оплата</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 La Pâtisserie Douce. Все права защищены.</p>
+            </div>
         </div>
-        <div class="footer-contacts">
-            <h4>Контакты</h4>
-            <p>Санкт-Петербург, доставка по согласованию</p>
-            <p><a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
-            <p><a href="mailto:hello@patisserie.ru">hello@patisserie.ru</a></p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <p>© 2026 La Pâtisserie Douce. Все права защищены.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
 </html>
