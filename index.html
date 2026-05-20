@@ -28,13 +28,15 @@
         }
 
         /* Typography */
-        h1, h2, h3 { 
+        h1, h2, h3, h4 { 
             font-family: 'Georgia', 'Times New Roman', serif; 
             font-weight: 400; 
             letter-spacing: 0.3px;
         }
         h1 { font-size: 2.6rem; margin-bottom: 1rem; color: var(--green-dark); }
         h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; color: var(--green-dark); }
+        h3 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--green-dark); }
+        h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
         p { margin-bottom: 1rem; color: var(--text-secondary); }
         
         /* Layout */
@@ -73,6 +75,11 @@
             box-shadow: 0 4px 12px rgba(140, 154, 140, 0.25);
         }
         .btn:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(74, 90, 74, 0.3); }
+        .btn-outline {
+            background: transparent; color: var(--green-dark);
+            border: 2px solid var(--green-muted);
+        }
+        .btn-outline:hover { background: var(--green-muted); color: var(--white-soft); }
 
         /* Services Grid */
         .services-grid { 
@@ -99,6 +106,19 @@
             padding: 4px 10px; border-radius: 20px; align-self: center;
         }
 
+        /* Philosophy Section */
+        .philosophy { 
+            background: var(--white-soft); 
+            border-radius: 24px; 
+            padding: 50px 40px; 
+            margin: 40px auto; 
+            max-width: 950px;
+            border: 1px solid var(--beige-accent);
+            text-align: center;
+        }
+        .philosophy p { font-size: 1.1rem; max-width: 750px; margin: 0 auto; }
+        .philosophy strong { color: var(--green-dark); font-weight: 500; }
+
         /* Development & Consulting Section */
         .dev-block { 
             background: var(--bg-section); border-radius: 24px; 
@@ -112,15 +132,77 @@
         .dev-list li { margin-bottom: 12px; padding-left: 24px; position: relative; color: var(--text-secondary); }
         .dev-list li::before { content: "✦"; color: var(--green-muted); position: absolute; left: 0; font-size: 1.1rem; }
         
-        /* Contact/Order */
-        .contact { text-align: center; background: var(--pink-light); border-radius: 20px; padding: 45px 30px; margin: 0 auto 70px; max-width: 800px; }
-        .contact-form { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-        .contact-form input, .contact-form textarea, .contact-form select {
-            padding: 14px; border: 1px solid var(--beige-accent); border-radius: 10px; 
-            font-family: inherit; background: var(--white-soft); outline: none; transition: border 0.3s; font-size: 0.95rem;
+        /* Programs Section */
+        .programs-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px; margin-top: 40px;
         }
-        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--green-muted); }
-        .contact-form button { margin-top: 8px; align-self: center; }
+        .program-card {
+            background: var(--white-soft); border-radius: 18px; padding: 30px;
+            border: 1px solid var(--pink-powder); transition: transform 0.3s;
+        }
+        .program-card:hover { transform: translateY(-4px); }
+        .program-card .duration { 
+            display: inline-block; font-size: 0.85rem; color: var(--green-muted); 
+            background: var(--pink-light); padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
+        }
+        .program-card ul { list-style: none; margin: 15px 0; }
+        .program-card li { 
+            font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 6px; padding-left: 18px; position: relative;
+        }
+        .program-card li::before { content: "•"; color: var(--green-muted); position: absolute; left: 0; }
+
+        /* Testimonials */
+        .testimonials { background: var(--pink-light); border-radius: 24px; padding: 50px 40px; margin: 60px auto; max-width: 950px; }
+        .testimonial { 
+            background: var(--white-soft); padding: 24px; border-radius: 16px; 
+            margin-bottom: 20px; border-left: 4px solid var(--green-muted);
+        }
+        .testimonial p { font-style: italic; margin-bottom: 12px; }
+        .testimonial-author { font-weight: 500; color: var(--green-dark); font-size: 0.95rem; }
+
+        /* Why Us */
+        .why-us-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px; margin-top: 30px;
+        }
+        .why-item { text-align: center; padding: 20px; }
+        .why-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .why-item h4 { margin-bottom: 8px; }
+
+        /* Contact Section - Updated */
+        .contact { 
+            text-align: center; 
+            background: var(--pink-light); 
+            border-radius: 20px; 
+            padding: 50px 30px; 
+            margin: 0 auto 70px; 
+            max-width: 800px; 
+        }
+        .contact p { font-size: 1.05rem; margin-bottom: 25px; }
+        
+        .social-links {
+            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 30px 0;
+        }
+        .social-link {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 140px; padding: 14px 24px; border-radius: 50px; 
+            background: var(--white-soft); color: var(--green-dark);
+            text-decoration: none; font-weight: 500; font-size: 0.95rem;
+            transition: all 0.3s ease; border: 2px solid var(--beige-accent);
+        }
+        .social-link:hover { 
+            background: var(--green-dark); color: var(--white-soft); 
+            border-color: var(--green-dark); transform: translateY(-2px);
+        }
+        .social-link.tg:hover { background: #0088cc; border-color: #0088cc; }
+        .social-link.wa:hover { background: #25D366; border-color: #25D366; }
+        .social-link.vk:hover { background: #0077FF; border-color: #0077FF; }
+        
+        .contact-note { 
+            font-size: 0.9rem; color: var(--text-secondary); 
+            margin-top: 20px; padding-top: 20px; border-top: 1px dashed var(--beige-accent);
+        }
 
         /* Footer */
         .site-footer {
@@ -131,13 +213,13 @@
         .footer-logo { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--green-dark); font-style: italic; margin-bottom: 12px; }
         .footer-tagline { line-height: 1.6; margin-bottom: 24px; max-width: 300px; }
         .footer-socials { display: flex; gap: 12px; }
-        .social-link {
+        .footer-social-link {
             display: inline-flex; align-items: center; justify-content: center;
             width: 40px; height: 40px; border-radius: 50%; background: var(--white-soft);
             color: var(--green-muted); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.5px;
             text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--beige-accent);
         }
-        .social-link:hover { background: var(--green-dark); color: var(--white-soft); border-color: var(--green-dark); transform: translateY(-2px); }
+        .footer-social-link:hover { background: var(--green-dark); color: var(--white-soft); border-color: var(--green-dark); transform: translateY(-2px); }
         .footer-nav h4, .footer-contacts h4 { font-family: 'Georgia', serif; font-size: 1.15rem; color: var(--green-dark); margin-bottom: 18px; font-weight: 400; letter-spacing: 0.5px; }
         .footer-nav ul { list-style: none; padding: 0; margin: 0; }
         .footer-nav li { margin-bottom: 10px; }
@@ -150,10 +232,11 @@
             h1 { font-size: 2rem; }
             .hero { padding: 60px 20px; }
             .nav-links { display: none; }
-            .dev-block { padding: 30px 20px; }
+            .dev-block, .philosophy, .testimonials { padding: 30px 20px; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
             .footer-tagline { max-width: 100%; margin-left: auto; margin-right: auto; }
-            .footer-socials { justify-content: center; }
+            .footer-socials, .social-links { justify-content: center; }
+            .social-link { min-width: 120px; padding: 12px 20px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -165,8 +248,9 @@
                 <div class="logo">La Pâtisserie Douce</div>
                 <div class="nav-links">
                     <a href="#services">Услуги</a>
-                    <a href="#development">Разработка и обучение</a>
-                    <a href="#contact">Связаться</a>
+                    <a href="#programs">Программы</a>
+                    <a href="#development">Обучение</a>
+                    <a href="#contact">Контакты</a>
                 </div>
             </nav>
         </div>
@@ -175,8 +259,15 @@
     <section class="hero">
         <div class="container">
             <h1>Вкус, технология и эстетика</h1>
-            <p>Авторские торты, пирожные и индивидуальные десерты. Профессиональная разработка новых рецептур, консалтинг и обучение кондитерскому искусству.</p>
-            <a href="#contact" class="btn">Оставить заявку</a>
+            <p>Авторские торты, пирожные и индивидуальные десерты. Профессиональная разработка новых рецептур, консалтинг и обучение кондитерскому искусству с акцентом на понимание процессов, а не слепое следование рецептам.</p>
+            <a href="#contact" class="btn">Связаться</a>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="philosophy">
+            <h2>Наша философия</h2>
+            <p>Мы верим, что <strong>настоящий кондитер — это мыслитель</strong>. Не просто исполнитель рецептов, а специалист, который понимает химию процессов, баланс текстур и психологию вкуса. Наши программы и услуги построены на принципе «учу думать, а не копировать». Каждая рецептура, каждый мастер-класс — это возможность раскрыть свой потенциал и создать продукт, который будет работать на вас.</p>
         </div>
     </section>
 
@@ -187,7 +278,7 @@
                 <div class="card-icon">🎂</div>
                 <div class="card-body">
                     <h3>Авторские торты</h3>
-                    <p>Классические и современные многоярусные решения. Тщательный подбор ингредиентов, баланс текстур и индивидуальный дизайн.</p>
+                    <p>Классические и современные многоярусные решения. Тщательный подбор ингредиентов, баланс текстур и индивидуальный дизайн. Работаем с натуральными компонентами: бельгийский шоколад, французская ваниль, сезонные ягоды.</p>
                     <span class="tag">Для частных лиц</span>
                 </div>
             </div>
@@ -195,7 +286,7 @@
                 <div class="card-icon">🧁</div>
                 <div class="card-body">
                     <h3>Пирожные и десерты на заказ</h3>
-                    <p>Камерные сеты, тематические коллекции и кэнди-бары. Идеально для мероприятий, фотосессий и корпоративных подарков.</p>
+                    <p>Камерные сеты, тематические коллекции и кэнди-бары. Идеально для мероприятий, фотосессий и корпоративных подарков. Адаптируем под ваши брендовые цвета и концепцию события.</p>
                     <span class="tag">Для событий и бизнеса</span>
                 </div>
             </div>
@@ -203,7 +294,7 @@
                 <div class="card-icon">🔬</div>
                 <div class="card-body">
                     <h3>Разработка новых сладостей</h3>
-                    <p>Создание уникальных рецептур под ваше ТЗ. Тестирование стабильности, подбор начинок, адаптация под производство.</p>
+                    <p>Создание уникальных рецептур под ваше ТЗ. Тестирование стабильности, подбор начинок, адаптация под производство. Рассчитываем себестоимость, сроки годности и технологические карты.</p>
                     <span class="tag">R&D и B2B</span>
                 </div>
             </div>
@@ -211,9 +302,54 @@
                 <div class="card-icon">📚</div>
                 <div class="card-body">
                     <h3>Консультации и обучение</h3>
-                    <p>Передача принципов создания кондитерских линеек. Аудит процессов, наставничество и практические курсы для профессионалов.</p>
+                    <p>Передача принципов создания кондитерских линеек. Аудит процессов, наставничество и практические курсы для профессионалов. Онлайн и офлайн форматы, поддержка после обучения.</p>
                     <span class="tag">Образование и консалтинг</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="container">
+        <h2>Программы обучения</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
+            Выберите формат, который подходит именно вам: от интенсивных мастер-классов до комплексных программ с поддержкой.
+        </p>
+        <div class="programs-grid">
+            <div class="program-card">
+                <span class="duration">10 модулей • 100+ видеоуроков</span>
+                <h3>Кондитер с нуля</h3>
+                <p>Откройте для себя профессию кондитера и научитесь готовить 45+ видов десертов: от базовых бисквитов до сложных муссовых тортов.</p>
+                <ul>
+                    <li>Основы работы с тестом и кремами</li>
+                    <li>Технологии стабилизации и хранения</li>
+                    <li>Декор и презентация</li>
+                    <li>Расчёт себестоимости</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" style="padding: 10px 24px; font-size: 0.9rem;">Узнать подробнее</a>
+            </div>
+            <div class="program-card">
+                <span class="duration">5 интенсивных уроков</span>
+                <h3>Современные медовики</h3>
+                <p>Любимый торт всех времён в новой интерпретации. 5 авторских рецептов: от классики до веган-версии и безглютенового варианта.</p>
+                <ul>
+                    <li>Работа с медовым тестом</li>
+                    <li>Баланс влажности и плотности</li>
+                    <li>Альтернативные начинки</li>
+                    <li>Упаковка и логистика</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" style="padding: 10px 24px; font-size: 0.9rem;">Узнать подробнее</a>
+            </div>
+            <div class="program-card">
+                <span class="duration">15 видеоуроков • Пожизненный доступ</span>
+                <h3>Карамель и ириски</h3>
+                <p>Научитесь готовить 14 видов тянучек, ирисок и фаджей из понятных ингредиентов — для себя, семьи и красивых подарков к праздникам.</p>
+                <ul>
+                    <li>Контроль температуры карамели</li>
+                    <li>Работа с кристаллизацией</li>
+                    <li>Натуральные ароматизаторы</li>
+                    <li>Дизайн упаковки</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" style="padding: 10px 24px; font-size: 0.9rem;">Узнать подробнее</a>
             </div>
         </div>
     </section>
@@ -222,7 +358,7 @@
         <div class="dev-block">
             <div class="dev-content">
                 <div class="dev-text">
-                    <h2>Разработка рецептур и обучение</h2>
+                    <h2>Разработка рецептур и обучение для бизнеса</h2>
                     <p>Мы не просто готовим десерты, а создаём кондитерские продукты «под ключ». Помогаем кафе, ресторанам и стартапам запускать новые линейки, обучаем команды работе с современными текстурами и стабилизацией.</p>
                     <ul class="dev-list">
                         <li>Разработка рецептур с учётом себестоимости и сроков годности</li>
@@ -237,24 +373,69 @@
         </div>
     </section>
 
+    <section class="container">
+        <div class="why-us-grid">
+            <div class="why-item">
+                <div class="why-icon">🎯</div>
+                <h4>100% рабочие рецептуры</h4>
+                <p style="font-size: 0.9rem;">Все технологии отработаны на практике. Вы получаете проверенные решения, которые работают с первого раза.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">💬</div>
+                <h4>Шеф на связи</h4>
+                <p style="font-size: 0.9rem;">Поддержка в чате, ответы на вопросы, разбор сложных случаев. Мы ведём вас до результата.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🕒</div>
+                <h4>Учитесь в своём темпе</h4>
+                <p style="font-size: 0.9rem;">Онлайн-формат позволяет заниматься в любое время и в любом месте. Доступ к материалам — пожизненный.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🌱</div>
+                <h4>Эко-подход</h4>
+                <p style="font-size: 0.9rem;">Работаем с натуральными ингредиентами, минимизируем отходы, предлагаем веган- и безглютеновые опции.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="testimonials">
+            <h2 style="text-align: center; margin-bottom: 30px;">Отзывы учеников и клиентов</h2>
+            <div class="testimonial">
+                <p>«Три года назад увлеклась кондитерским делом, но самостоятельные попытки не давали стабильного результата. После курса от Ла Патисери наконец поняла принципы работы с муссами и кремами. Теперь мои торты заказывают друзья и коллеги!»</p>
+                <div class="testimonial-author">— Анна, Санкт-Петербург</div>
+            </div>
+            <div class="testimonial">
+                <p>«Заказывали разработку линейки десертов для нового кафе. Получили не просто рецепты, а полный пакет: техкарты, расчёт себестоимости, рекомендации по закупкам. Запуск прошёл гладко, гости в восторге.»</p>
+                <div class="testimonial-author">— Дмитрий, владелец кафе «Уют», Москва</div>
+            </div>
+            <div class="testimonial">
+                <p>«Прошла интенсив по карамели — теперь делаю ириски на подарки всем родственникам. Всё объясняют так понятно, что даже новичок справится. И поддержка в чате — это отдельный плюс!»</p>
+                <div class="testimonial-author">— Екатерина, Екатеринбург</div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="container">
         <div class="contact">
-            <h2>Обсудить заказ или проект</h2>
-            <p>Оставьте контакты, и мы свяжемся с вами в течение рабочего дня для уточнения деталей.</p>
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка отправлена.');">
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="tel" placeholder="Телефон или Telegram" required>
-                <input type="email" placeholder="Email (по желанию)">
-                <select>
-                    <option value="" disabled selected>Выберите тип запроса</option>
-                    <option value="cake">Заказ торта / десертов</option>
-                    <option value="development">Разработка новой рецептуры</option>
-                    <option value="consult">Консультация / Обучение</option>
-                    <option value="other">Другое</option>
-                </select>
-                <textarea rows="4" placeholder="Кратко опишите задачу, сроки или желаемый результат..."></textarea>
-                <button type="submit" class="btn">Отправить запрос</button>
-            </form>
+            <h2>Связаться с нами</h2>
+            <p>Готовы обсудить ваш заказ, проект обучения или консультацию? Напишите нам в удобный мессенджер — ответим в течение рабочего дня.</p>
+            
+            <div class="social-links">
+                <a href="https://t.me/your_username" class="social-link tg" target="_blank" rel="noopener">Telegram</a>
+                <a href="https://wa.me/79001234567" class="social-link wa" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://vk.com/privet_ot_egora" class="social-link vk" target="_blank" rel="noopener">ВКонтакте</a>
+                <a href="https://instagram.com/your_profile" class="social-link" target="_blank" rel="noopener">Instagram</a>
+            </div>
+            
+            <div class="contact-note">
+                <p><strong>Санкт-Петербург</strong> • Работаем по РФ и СНГ</p>
+                <p>
+                    <a href="tel:+79001234567" style="color: var(--green-dark); font-weight: 500;">+7 (900) 123-45-67</a> • 
+                    <a href="mailto:hello@patisserie.ru" style="color: var(--green-dark); font-weight: 500;">hello@patisserie.ru</a>
+                </p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">При обращении укажите, пожалуйста, тип запроса: заказ десертов, разработка рецептуры или обучение.</p>
+            </div>
         </div>
     </section>
 
@@ -264,16 +445,17 @@
                 <div class="footer-logo">La Pâtisserie Douce</div>
                 <p class="footer-tagline">Авторские десерты, разработка рецептур и обучение. Объединяем кулинарное искусство с технологической точностью.</p>
                 <div class="footer-socials">
-                    <a href="#" class="social-link" aria-label="Telegram">TG</a>
-                    <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
-                    <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                    <a href="https://t.me/your_username" class="footer-social-link" aria-label="Telegram">TG</a>
+                    <a href="https://wa.me/79001234567" class="footer-social-link" aria-label="WhatsApp">WA</a>
+                    <a href="https://vk.com/privet_ot_egora" class="footer-social-link" aria-label="VK">VK</a>
                 </div>
             </div>
             <div class="footer-nav">
                 <h4>Навигация</h4>
                 <ul>
                     <li><a href="#services">Услуги</a></li>
-                    <li><a href="#development">Разработка и обучение</a></li>
+                    <li><a href="#programs">Программы обучения</a></li>
+                    <li><a href="#development">Для бизнеса</a></li>
                     <li><a href="#">Портфолио</a></li>
                 </ul>
             </div>
